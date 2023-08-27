@@ -10,8 +10,6 @@ class Entity():
         self.images = load_cut_image('player_idle.png')[0]
         self.rect = pygame.FRect(self.default_pos.x, self.default_pos.y, self.images.get_width(), self.images.get_height())
 
-        self.die_sound = pygame.mixer.Sound('audio/die.wav')
-        self.die_sound.set_volume(0.8)
         self.jump_sound = pygame.mixer.Sound('audio/jump.wav')
         self.jump_sound.set_volume(0.2)
 
@@ -48,6 +46,10 @@ class Entity():
                 self.jump_sound.play()
                 self.velocity.y = -6
 
+    def reset(self):
+        self.rect.topleft = self.default_pos
+        self.velocity.y = 0
+
     def draw(self, display):
         display.blit(pygame.transform.flip(self.image, self.flip, False), self.rect.topleft - self.main.scroll)
 
@@ -57,6 +59,8 @@ class Player(Entity):
         self.image = load_cut_image('player_idle.png')[0]
         self.rect = pygame.FRect(pos.x, pos.y, self.image.get_width(), self.image.get_height())
 
+        self.die_sound = pygame.mixer.Sound('audio/die.wav')
+        self.die_sound.set_volume(0.8)
         self.level_complete_sound = pygame.mixer.Sound('audio/level_complete.wav')
         self.level_complete_sound.set_volume(1)
 
@@ -81,8 +85,7 @@ class Player(Entity):
         for tile in self.danger_tiles:
             if self.rect.colliderect(tile):
                 self.die_sound.play()
-                self.rect.topleft = self.default_pos
-                self.velocity.y = 0
+                self.reset()
 
         for tile in self.win_tiles:
             if self.rect.colliderect(tile):
@@ -90,8 +93,8 @@ class Player(Entity):
                 self.level_complete = True
 
         if self.rect.y > 600:
-            self.rect.topleft = self.default_pos
-            self.velocity.y = 0
+            self.die_sound.play()
+            self.reset()
 
     def move(self):
         keys = pygame.key.get_pressed()

@@ -41,10 +41,17 @@ class Main():
 
         self.background_image = load_image('forest_bg.png')
 
+        menu_font = pygame.font.SysFont('images/font.ttf', 30)
+        self.menu_text = menu_font.render('Click Enter to Start', False, (255, 255, 255))
+
         self.music = pygame.mixer.Sound('audio/music.mp3')
         self.music.play(1000)
+        self.start_sound = pygame.mixer.Sound('audio/start.wav')
 
         self.scroll = pygame.math.Vector2(0, 0)
+
+        self.state = 'menu'
+        self.logo = load_image('logo.png')
 
         self.clock = pygame.time.Clock()
 
@@ -79,35 +86,53 @@ class Main():
 
     def update(self):
         while True:
-            self.tiles = self.terrain_tiles + self.spikes_tiles + self.bouncepad_tiles + self.star_tiles
-            self.entities = self.players
-
             self.display.blit(self.background_image, pygame.math.Vector2(0, 0))
 
+            keys = pygame.key.get_pressed()
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        sys.exit()
 
-            for player in self.players:
-                player.update()    
-                player.draw(self.display)
-                if player.level_complete == True:
-                    self.level_number += 1
-                    if self.level_number <= len(levels):
-                        self.current_level = levels[str(self.level_number)]
-                        self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
-                    if self.level_number > len(levels):
-                        self.level_number = 1
-                        self.current_level = levels[str(self.level_number)]
-                        self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
+            if self.state == 'game':
+                if keys[pygame.K_ESCAPE]:
+                    self.state = 'menu'
+                    self.level_number = 1
+                    self.current_level = levels[str(self.level_number)]
+                    self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
+                    for player in self.players:
+                        player.reset()
 
-                    player.level_complete = False
+                self.tiles = self.terrain_tiles + self.spikes_tiles + self.bouncepad_tiles + self.star_tiles
+                self.entities = self.players
 
-            for tile in self.tiles:
-                tile.draw(self.display)
+                for player in self.players:
+                    player.update()    
+                    player.draw(self.display)
+                    if player.level_complete == True:
+                        self.level_number += 1
+                        if self.level_number <= len(levels):
+                            self.current_level = levels[str(self.level_number)]
+                            self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
+                        if self.level_number > len(levels):
+                            self.level_number = 1
+                            self.current_level = levels[str(self.level_number)]
+                            self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
 
-            self.apply_scroll()
+                        player.level_complete = False
+
+                for tile in self.tiles:
+                    tile.draw(self.display)
+
+                self.apply_scroll()
+
+            if self.state == 'menu':
+                self.display.blit(pygame.transform.scale(self.logo, (self.logo.get_width() * 2, self.logo.get_height() * 2)), pygame.math.Vector2(self.display_size.x/2 - self.logo.get_width(), 20))
+                self.display.blit(self.menu_text, pygame.math.Vector2(self.display_size.x/2 - self.menu_text.get_width()/2, 110))
+
+                if keys[pygame.K_RETURN]:
+                    self.start_sound.play()
+                    self.state = 'game'
 
             self.screen.blit(pygame.transform.scale(self.display, self.screen_size), pygame.math.Vector2(0, 0))
             self.clock.tick(60)
