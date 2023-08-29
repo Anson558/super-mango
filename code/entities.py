@@ -62,7 +62,7 @@ class Player(Entity):
         self.die_sound = pygame.mixer.Sound('audio/die.wav')
         self.die_sound.set_volume(0.8)
         self.level_complete_sound = pygame.mixer.Sound('audio/level_complete.wav')
-        self.level_complete_sound.set_volume(1)
+        self.level_complete_sound.set_volume(0.7)
 
         self.speed = 1.5
         self.jump_height = -4

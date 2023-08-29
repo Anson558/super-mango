@@ -41,12 +41,13 @@ class Main():
 
         self.background_image = load_image('forest_bg.png')
 
-        menu_font = pygame.font.SysFont('images/font.ttf', 30)
+        menu_font = pygame.font.SysFont('images/font.ttf', 15)
         self.menu_text = menu_font.render('Click Enter to Start', False, (255, 255, 255))
 
         self.music = pygame.mixer.Sound('audio/music.mp3')
         self.music.play(1000)
         self.start_sound = pygame.mixer.Sound('audio/start.wav')
+        self.start_sound.set_volume(0.2)
 
         self.scroll = pygame.math.Vector2(0, 0)
 

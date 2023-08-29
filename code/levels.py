@@ -24,5 +24,17 @@ levels = {
             'bouncepads': load_level('two/two_bouncepads.csv'),
 
             'stars': load_level('two/two_stars.csv'),
-    }
+    },
+
+    '3': {
+            'players': load_level('three/three_player.csv'),
+
+            'terrain': load_level('three/three_grass.csv'),
+
+            'spikes': load_level('three/three_spikes.csv'),
+
+            'bouncepads': load_level('three/three_bouncepads.csv'),
+
+            'stars': load_level('three/three_stars.csv'),
+    },
 }
