@@ -23,23 +23,20 @@ class Main():
 
         self.terrain_tiles = []
         self.terrain_images = load_cut_image('grass_tiles.png')
-
+        self.enemy_boundaries = []
+        self.enemy_boundaries_images = load_image('enemy_boundary.png')
         self.spikes_tiles = []
         self.spikes_images = load_images(['spikes.png', 'spike_block.png'])
-
         self.bouncepad_tiles = []
         self.bouncepad_image = load_image('bouncepad.png')
-
         self.star_tiles = []
         self.star_image = load_image('star.png')
-
         self.players = []
+        self.spiders = []
 
-        self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
+        self.create_groups([self.current_level.stars, self.current_level.enemy_boundaries, self.current_level.spiders, self.current_level.players, self.current_level.bouncepads, self.current_level.spikes, self.current_level.terrain])
+
         self.tiles = self.terrain_tiles + self.spikes_tiles + self.bouncepad_tiles + self.star_tiles
-        self.entities = self.players
-
-        self.background_image = load_image('forest_bg.png')
 
         menu_font = pygame.font.SysFont('images/font.ttf', 15)
         self.menu_text = menu_font.render('Click Enter to Start', False, (255, 255, 255))
@@ -52,7 +49,9 @@ class Main():
         self.scroll = pygame.math.Vector2(0, 0)
 
         self.state = 'menu'
+
         self.logo = load_image('logo.png')
+        self.background_image = load_image('forest_bg.png')
 
         self.clock = pygame.time.Clock()
 
@@ -62,6 +61,8 @@ class Main():
         self.bouncepad_tiles.clear()
         self.star_tiles.clear()
         self.players.clear()
+        self.spiders.clear()
+        self.enemy_boundaries.clear()
 
         for layout in layouts:
             for row_index, row in enumerate(layout): 
@@ -69,16 +70,20 @@ class Main():
                         x = col_index * self.tile_size
                         y = row_index * self.tile_size
                         if col != '-1':
-                            if layout == self.current_level['terrain']:
+                            if layout == self.current_level.enemy_boundaries:
+                                self.enemy_boundaries.append(EnemyBoundary(self, pygame.math.Vector2(x, y), self.enemy_boundaries_images))
+                            if layout == self.current_level.terrain:
                                 self.terrain_tiles.append(Tile(self, pygame.math.Vector2(x, y), self.terrain_images[int(col)]))
-                            if layout == self.current_level['spikes']:
+                            if layout == self.current_level.spikes:
                                 self.spikes_tiles.append(Tile(self, pygame.math.Vector2(x, y), self.spikes_images[int(col)], pygame.math.Vector2(0, 10)))
-                            if layout == self.current_level['bouncepads']:
-                                self.bouncepad_tiles.append(Tile(self,      pygame.math.Vector2(x, y), self.bouncepad_image, pygame.math.Vector2(0, 10)))
-                            if layout == self.current_level['stars']:
-                                self.star_tiles.append(Tile(self, pygame.math.Vector2(x, y), self.star_image, pygame.math.Vector2(0, 0)))
-                            if layout == self.current_level['players']:
+                            if layout == self.current_level.bouncepads:
+                                self.bouncepad_tiles.append(Tile(self, pygame.math.Vector2(x, y), self.bouncepad_image, pygame.math.Vector2(0, 10)))
+                            if layout == self.current_level.stars:
+                                self.star_tiles.append(Tile(self, pygame.math.Vector2(x, y), self.star_image,))
+                            if layout == self.current_level.players:
                                 self.players.append(Player(self, pygame.math.Vector2(x, y)))
+                            if layout == self.current_level.spiders:
+                                self.spiders.append(Spider(self, pygame.math.Vector2(x, y)))
 
     def apply_scroll(self):
         for player in self.players:
@@ -100,30 +105,32 @@ class Main():
                     self.state = 'menu'
                     self.level_number = 1
                     self.current_level = levels[str(self.level_number)]
-                    self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
+                    self.create_groups([self.current_level.stars, self.current_level.enemy_boundaries, self.current_level.spiders, self.current_level.players, self.current_level.bouncepads, self.current_level.spikes, self.current_level.terrain])
                     for player in self.players:
                         player.reset()
 
-                self.tiles = self.terrain_tiles + self.spikes_tiles + self.bouncepad_tiles + self.star_tiles
-                self.entities = self.players
+                tiles = self.terrain_tiles + self.spikes_tiles + self.bouncepad_tiles + self.star_tiles
+                entities = self.players + self.spiders
+
+                for entity in entities:
+                    entity.update()    
+                    entity.draw(self.display)
+
+                for tile in tiles:
+                    tile.draw(self.display)
 
                 for player in self.players:
-                    player.update()    
-                    player.draw(self.display)
                     if player.level_complete == True:
                         self.level_number += 1
                         if self.level_number <= len(levels):
                             self.current_level = levels[str(self.level_number)]
-                            self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
+                            self.create_groups([self.current_level.stars, self.current_level.enemy_boundaries, self.current_level.spiders, self.current_level.players, self.current_level.bouncepads, self.current_level.spikes, self.current_level.terrain])
                         if self.level_number > len(levels):
                             self.level_number = 1
                             self.current_level = levels[str(self.level_number)]
-                            self.create_groups([self.current_level['stars'], self.current_level['players'], self.current_level['bouncepads'], self.current_level['spikes'], self.current_level['terrain']])
+                            self.create_groups([self.current_level.stars, self.current_level.enemy_boundaries, self.current_level.spiders, self.current_level.players, self.current_level.bouncepads, self.current_level.spikes, self.current_level.terrain])
 
                         player.level_complete = False
-
-                for tile in self.tiles:
-                    tile.draw(self.display)
 
                 self.apply_scroll()
 

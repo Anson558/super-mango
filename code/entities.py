@@ -2,13 +2,13 @@ import pygame
 from tools import *
 
 class Entity():
-    def __init__(self, main, pos):
+    def __init__(self, main, pos, image):
         pygame.init()
         self.default_pos = pos
         self.main = main
 
-        self.images = load_cut_image('player_idle.png')[0]
-        self.rect = pygame.FRect(self.default_pos.x, self.default_pos.y, self.images.get_width(), self.images.get_height())
+        self.image = image
+        self.rect = pygame.FRect(self.default_pos.x, self.default_pos.y, self.image.get_width(), self.image.get_height())
 
         self.jump_sound = pygame.mixer.Sound('audio/jump.wav')
         self.jump_sound.set_volume(0.2)
@@ -55,8 +55,8 @@ class Entity():
 
 class Player(Entity):
     def __init__(self, main, pos):
-        super().__init__(main, pos)
-        self.image = load_cut_image('player_idle.png')[0]
+        super().__init__(main, pos, load_cut_image('player_idle.png')[0])
+
         self.rect = pygame.FRect(pos.x, pos.y, self.image.get_width(), self.image.get_height())
 
         self.die_sound = pygame.mixer.Sound('audio/die.wav')
@@ -67,8 +67,6 @@ class Player(Entity):
         self.speed = 1.5
         self.jump_height = -4
 
-        self.danger_tiles = self.main.spikes_tiles
-        self.win_tiles = self.main.star_tiles
         self.level_complete = False
 
         self.idle_anim = Animation(load_cut_image('player_idle.png'), 15)
@@ -82,12 +80,14 @@ class Player(Entity):
         self.move()
         self.animate()
 
-        for tile in self.danger_tiles:
-            if self.rect.colliderect(tile):
+        danger_tiles = self.main.spikes_tiles + self.main.spiders
+        for tile in danger_tiles:
+            if self.rect.colliderect(tile.rect):
                 self.die_sound.play()
                 self.reset()
 
-        for tile in self.win_tiles:
+        win_tiles = self.main.star_tiles
+        for tile in win_tiles:
             if self.rect.colliderect(tile):
                 self.level_complete_sound.play()
                 self.level_complete = True
@@ -119,8 +119,12 @@ class Player(Entity):
         for animation in animations:
             animation.play()
 
-        if abs(self.velocity.x) > 0:
+        if self.velocity.x > 0:
             self.image = self.run_anim.image
+            self.flip = False
+        if self.velocity.x < 0:
+            self.image = self.run_anim.image
+            self.flip = True
         if self.velocity.x == 0:
             self.image = self.idle_anim.image
 
@@ -128,3 +132,28 @@ class Player(Entity):
             self.image = self.jump_anim.image
         if self.velocity.y > self.gravity:
             self.image = self.fall_anim.image
+
+class Spider(Entity):
+    def __init__(self, main, pos):
+        super().__init__(main, pos, load_cut_image('spider_run.png')[0])
+        self.speed = 0.75
+        self.rect = pygame.FRect(self.default_pos.x, self.default_pos.y, self.image.get_width(), self.image.get_height())
+        self.animation = Animation(load_cut_image('spider_run.png'), 8)
+        self.velocity.x = -self.speed
+
+    def update(self):
+        super().update()
+        self.animate()
+
+        for tile in self.main.enemy_boundaries:
+            if self.rect.colliderect(tile):
+                self.velocity.x *= -1
+
+    def animate(self):
+        self.animation.play()
+        self.image = self.animation.image
+
+        if self.velocity.x > 0:
+            self.flip = True
+        if self.velocity.x < 0:
+            self.flip = False

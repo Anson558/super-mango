@@ -1,6 +1,5 @@
 import pygame
 from csv import reader
-import os
 
 base_img_path = 'images/'
 base_level_path = 'levels/'
@@ -17,11 +16,11 @@ def load_images(paths):
 
 	return imgs
 
-def load_level(path):
+def load_csv(path):
 	terrain_map = []
 	with open(base_level_path +  path) as map:
-		level = reader(map,delimiter = ',')
-		for row in level:
+		csv = reader(map,delimiter = ',')
+		for row in csv:
 			terrain_map.append(list(row))
 		return terrain_map
 

@@ -1,40 +1,26 @@
 import json
-from tools import load_level
+from tools import load_csv
+
+class Level():
+    def __init__(self, level_string):
+        self.level_string = level_string
+
+        self.enemy_boundaries = load_csv(self.level_string + '/' + self.level_string + '_enemy_boundaries.csv')
+
+        self.players = load_csv(self.level_string + '/' + self.level_string + '_player.csv')
+
+        self.terrain = load_csv(self.level_string + '/' + self.level_string + '_grass.csv')
+
+        self.spikes = load_csv(self.level_string + '/' + self.level_string + '_spikes.csv')
+
+        self.bouncepads = load_csv(self.level_string + '/' + self.level_string + '_bouncepads.csv')
+
+        self.stars = load_csv(self.level_string + '/' + self.level_string + '_stars.csv')
+
+        self.spiders = load_csv(self.level_string + '/' + self.level_string + '_spiders.csv')
 
 levels = {
-    '1': {
-            'players': load_level('one/one_player.csv'),
-
-            'terrain': load_level('one/one_grass.csv'),
-
-            'spikes': load_level('one/one_spikes.csv'),
-
-            'bouncepads': load_level('one/one_bouncepads.csv'),
-
-            'stars': load_level('one/one_stars.csv'),
-    },
-
-    '2': {
-            'players': load_level('two/two_player.csv'),
-
-            'terrain': load_level('two/two_grass.csv'),
-
-            'spikes': load_level('two/two_spikes.csv'),
-
-            'bouncepads': load_level('two/two_bouncepads.csv'),
-
-            'stars': load_level('two/two_stars.csv'),
-    },
-
-    '3': {
-            'players': load_level('three/three_player.csv'),
-
-            'terrain': load_level('three/three_grass.csv'),
-
-            'spikes': load_level('three/three_spikes.csv'),
-
-            'bouncepads': load_level('three/three_bouncepads.csv'),
-
-            'stars': load_level('three/three_stars.csv'),
-    },
+    '1': Level('one'),
+    '2': Level('two'),
+    '3': Level('three')
 }
