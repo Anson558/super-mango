@@ -22,5 +22,7 @@ class Level():
 levels = {
     '1': Level('one'),
     '2': Level('two'),
-    '3': Level('three')
+    '3': Level('three'),
+    '4': Level('four'),
+    '5': Level('five'), 
 }

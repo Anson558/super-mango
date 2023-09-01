@@ -136,7 +136,8 @@ class Player(Entity):
 class Spider(Entity):
     def __init__(self, main, pos):
         super().__init__(main, pos, load_cut_image('spider_run.png')[0])
-        self.speed = 0.75
+        self.speed = 1
+        print(self.speed)
         self.rect = pygame.FRect(self.default_pos.x, self.default_pos.y, self.image.get_width(), self.image.get_height())
         self.animation = Animation(load_cut_image('spider_run.png'), 8)
         self.velocity.x = -self.speed
