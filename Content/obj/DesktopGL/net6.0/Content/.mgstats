@@ -1,0 +1,20 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/ansonash/Repos/games/mono/Content/audio/coin.wav","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/audio/coin.xnb","SoundEffectProcessor","SoundEffectContent",8785,8846,0.0982183
+"/home/ansonash/Repos/games/mono/Content/audio/die.wav","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/audio/die.xnb","SoundEffectProcessor","SoundEffectContent",4106,4167,0.1089504
+"/home/ansonash/Repos/games/mono/Content/audio/jump.wav","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/audio/jump.xnb","SoundEffectProcessor","SoundEffectContent",8472,8533,0.0082225
+"/home/ansonash/Repos/games/mono/Content/audio/level_complete.wav","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/audio/level_complete.xnb","SoundEffectProcessor","SoundEffectContent",15812,15873,0.1021943
+"/home/ansonash/Repos/games/mono/Content/audio/music.mp3","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/audio/music.xnb","SongProcessor","SongContent",1601827,123,0.8402036
+"/home/ansonash/Repos/games/mono/Content/font.spritefont","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/font.xnb","FontDescriptionProcessor","SpriteFontContent",2011,37919,0.1855016
+"/home/ansonash/Repos/games/mono/Content/images/background.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/background.xnb","TextureProcessor","Texture2DContent",1602,230485,0.0499189
+"/home/ansonash/Repos/games/mono/Content/images/bird.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/bird.xnb","TextureProcessor","Texture2DContent",540,3157,0.0878715
+"/home/ansonash/Repos/games/mono/Content/images/coin.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/coin.xnb","TextureProcessor","Texture2DContent",216,1109,0.0985134
+"/home/ansonash/Repos/games/mono/Content/images/enemy_barrier.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/enemy_barrier.xnb","TextureProcessor","Texture2DContent",99,1109,0.0014284
+"/home/ansonash/Repos/games/mono/Content/images/player_idle.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/player_idle.xnb","TextureProcessor","Texture2DContent",406,2133,0.0045528
+"/home/ansonash/Repos/games/mono/Content/images/player_jump.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/player_jump.xnb","TextureProcessor","Texture2DContent",331,1109,0.0018334
+"/home/ansonash/Repos/games/mono/Content/images/player_run.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/player_run.xnb","TextureProcessor","Texture2DContent",541,4181,0.0011226
+"/home/ansonash/Repos/games/mono/Content/images/spider.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/spider.xnb","TextureProcessor","Texture2DContent",448,3157,0.000625
+"/home/ansonash/Repos/games/mono/Content/images/spikes.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/spikes.xnb","TextureProcessor","Texture2DContent",159,1109,0.000488
+"/home/ansonash/Repos/games/mono/Content/images/star.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/star.xnb","TextureProcessor","Texture2DContent",238,1109,0.0970513
+"/home/ansonash/Repos/games/mono/Content/images/terrain.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/terrain.xnb","TextureProcessor","Texture2DContent",1257,18517,0.0008934
+"/home/ansonash/Repos/games/mono/Content/images/title.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/title.xnb","TextureProcessor","Texture2DContent",583,12373,0.0064364
+"/home/ansonash/Repos/games/mono/Content/images/transparent.png","/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/transparent.xnb","TextureProcessor","Texture2DContent",88,1109,0.0004166

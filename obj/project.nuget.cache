@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "zp0E7MgtVKNJBNImP1m/55iwo3KvglwDtI3D07nfDFM5pUiv+7LEX1nhK4Uh8hd/EG7KxMPLdoTGAwf53ffYPA==",
+  "success": true,
+  "projectFilePath": "/home/ansonash/Repos/games/mono/mono.csproj",
+  "expectedPackageFiles": [
+    "/home/ansonash/.nuget/packages/monogame.content.builder.task/3.8.1.303/monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "/home/ansonash/.nuget/packages/monogame.framework.desktopgl/3.8.1.303/monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
+    "/home/ansonash/.nuget/packages/microsoft.netcore.app.ref/6.0.29/microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "/home/ansonash/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.29/microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "/home/ansonash/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.29/microsoft.netcore.app.host.linux-x64.6.0.29.nupkg.sha512"
+  ],
+  "logs": []
+}

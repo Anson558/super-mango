@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>/home/ansonash/Repos/games/mono/Content/audio/coin.wav</File>
+    <File>/home/ansonash/Repos/games/mono/Content/audio/die.wav</File>
+    <File>/home/ansonash/Repos/games/mono/Content/audio/jump.wav</File>
+    <File>/home/ansonash/Repos/games/mono/Content/audio/level_complete.wav</File>
+    <File>/home/ansonash/Repos/games/mono/Content/audio/music.mp3</File>
+    <File>/home/ansonash/Repos/games/mono/Content/font.spritefont</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/background.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/bird.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/coin.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/enemy_barrier.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/player_idle.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/player_jump.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/player_run.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/spider.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/spikes.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/star.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/terrain.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/title.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/transparent.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
