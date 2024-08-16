@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>/home/ansonash/Repos/games/mono/Content/images/coin.png</SourceFile>
-  <SourceTime>2024-06-13T16:52:25.1465639-06:00</SourceTime>
+  <SourceTime>2024-06-13T19:17:45.3434493-06:00</SourceTime>
   <DestFile>/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/images/coin.xnb</DestFile>
-  <DestTime>2024-06-13T16:52:42.4243109-06:00</DestTime>
+  <DestTime>2024-06-14T15:40:11.3126669-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T06:44:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

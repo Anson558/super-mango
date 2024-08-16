@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/home/ansonash/Repos/games/mono/Content/images/bird.png</SourceFile>
+  <SourceFile>/home/ansonash/Repos/games/super-mango/Content/images/bird.png</SourceFile>
   <SourceTime>2024-06-13T16:26:50.3199611-06:00</SourceTime>
-  <DestFile>/home/ansonash/Repos/games/mono/Content/bin/DesktopGL/Content/images/bird.xnb</DestFile>
-  <DestTime>2024-06-13T16:26:52.8369197-06:00</DestTime>
+  <DestFile>/home/ansonash/Repos/games/super-mango/Content/bin/DesktopGL/Content/images/bird.xnb</DestFile>
+  <DestTime>2024-06-23T18:07:47.3476363-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T06:44:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

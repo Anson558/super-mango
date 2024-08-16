@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -25,9 +26,7 @@ public class Player : PhysicsSprite
 
     public override void Update(GameTime gameTime)
     {   
-        CheckDeath();
-        CheckCompletion();
-        CheckCoins();
+        CheckCollisions(gameTime);
 
         float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
         KeyboardState kState = Keyboard.GetState();
@@ -59,41 +58,35 @@ public class Player : PhysicsSprite
         base.Update(gameTime);
     }
 
-    void CheckDeath()
+    void CheckCollisions(GameTime gameTime)
     {
+        float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
         foreach (Sprite sprite in sprites)
         {
             if (rect.Intersects(sprite.rect))
             {
-                if (sprite.type == "spikes" || sprite.type == "enemy" || rect.Y > 2000) {
+                if (sprite.type == "spikes" || sprite.type == "enemy" || rect.Y > 5000) {
                     audio["die"].Play();
+                    velocity = Vector2.Zero;
                     rect.X = (int)defaultPos.X;
                     rect.Y = (int)defaultPos.Y;
                 }
             }
-        }
-    }
-
-    void CheckCoins() 
-    {
-        for (var i = 0; i < sprites.Count; i++)
-        {
-            if (rect.Intersects(sprites[i].rect))
+            if (rect.Intersects(sprite.rect))
             {
-                if (sprites[i].type == "coin") {
+                if (sprite.type == "coin") {
                     audio["coin"].Play();
                     coinsCollected += 1;
-                    sprites[i].rect.X = 10000;
-                    sprites[i].rect.Y = 10000;
+                    sprite.rect.X = 10000;
+                    sprite.rect.Y = 10000;
                 }
             }
-        }
-    }
-
-    void CheckCompletion() 
-    {
-        foreach (Sprite sprite in sprites)
-        {
+            if (rect.Intersects(sprite.rect))
+            {
+                if (sprite.type == "bouncepad") {
+                    velocity.Y = -jumpHeight * 2f * dt;
+                }
+            }
             if (rect.Intersects(sprite.rect))
             {
                 if (sprite.type == "star") {
@@ -101,6 +94,6 @@ public class Player : PhysicsSprite
                     levelComplete = true;
                 }
             }
-        }
+        } 
     }
 }

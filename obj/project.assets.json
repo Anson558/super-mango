@@ -107,11 +107,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ansonash/Repos/games/mono/mono.csproj",
+      "projectUniqueName": "/home/ansonash/Repos/games/super-mango/mono.csproj",
       "projectName": "mono",
-      "projectPath": "/home/ansonash/Repos/games/mono/mono.csproj",
+      "projectPath": "/home/ansonash/Repos/games/super-mango/mono.csproj",
       "packagesPath": "/home/ansonash/.nuget/packages/",
-      "outputPath": "/home/ansonash/Repos/games/mono/obj/",
+      "outputPath": "/home/ansonash/Repos/games/super-mango/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ansonash/.nuget/NuGet/NuGet.Config"
@@ -161,15 +161,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.29, 6.0.29]"
+            "version": "[6.0.30, 6.0.30]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[6.0.29, 6.0.29]"
+            "version": "[6.0.30, 6.0.30]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.29, 6.0.29]"
+            "version": "[6.0.30, 6.0.30]"
           }
         ],
         "frameworkReferences": {
@@ -177,7 +177,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.104/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.105/RuntimeIdentifierGraph.json"
       }
     }
   }

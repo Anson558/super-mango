@@ -12,6 +12,7 @@
     <File>/home/ansonash/Repos/games/mono/Content/font.spritefont</File>
     <File>/home/ansonash/Repos/games/mono/Content/images/background.png</File>
     <File>/home/ansonash/Repos/games/mono/Content/images/bird.png</File>
+    <File>/home/ansonash/Repos/games/mono/Content/images/bouncepad.png</File>
     <File>/home/ansonash/Repos/games/mono/Content/images/coin.png</File>
     <File>/home/ansonash/Repos/games/mono/Content/images/enemy_barrier.png</File>
     <File>/home/ansonash/Repos/games/mono/Content/images/player_idle.png</File>
@@ -25,6 +26,7 @@
     <File>/home/ansonash/Repos/games/mono/Content/images/transparent.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

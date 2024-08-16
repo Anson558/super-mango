@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="1">
  <editorsettings>
-  <export target="1/1.csv" format="csv"/>
+  <export target="3/3.csv" format="csv"/>
  </editorsettings>
  <tileset firstgid="1" name="enemy_barrier" tilewidth="16" tileheight="16" tilecount="1" columns="1">
   <image source="../Content/images/enemy_barrier.png" width="16" height="16"/>

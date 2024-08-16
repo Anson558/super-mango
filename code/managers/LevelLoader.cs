@@ -82,6 +82,7 @@ public class LevelLoader
             ["birds"] = LoadLevel("birds"),
             ["enemyBarriers"] = LoadLevel("enemy_barrier"),
             ["stars"] = LoadLevel("stars"),
+            ["bouncepads"] = LoadLevel("bouncepads"),
             ["coins"] = LoadLevel("coins")
         };
         sprites.Clear();
@@ -135,6 +136,15 @@ public class LevelLoader
                 rectangle: new Rectangle((int)item.Key.X * 16, (int)item.Key.Y * 16, 10, 10), 
                 source: new Vector2(tileSource[item.Value].X, tileSource[item.Value].Y), 
                 type: "coin"
+            ));
+        }
+
+        foreach (var item in tilemaps["bouncepads"]) {
+            sprites.Add(new Sprite(
+                texture: assets["bouncepad"], 
+                rectangle: new Rectangle((int)item.Key.X * 16, (int)item.Key.Y * 16, 16, 6), 
+                source: new Vector2(tileSource[item.Value].X, tileSource[item.Value].Y), 
+                type: "bouncepad"
             ));
         }
 

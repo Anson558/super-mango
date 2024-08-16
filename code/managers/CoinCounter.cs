@@ -40,7 +40,7 @@ public class CoinCounter
 
     public void Draw(SpriteBatch _spriteBatch, GraphicsDeviceManager _graphics)
     {
-        string text = coins + "|" + totalCoins;
+        string text = coins + "/" + totalCoins;
         _spriteBatch.DrawString(
             assets["font"], 
             text, 

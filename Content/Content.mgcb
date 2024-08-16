@@ -74,6 +74,18 @@
 /processorParam:TextureFormat=Color
 /build:images/bird.png
 
+#begin images/bouncepad.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/bouncepad.png
+
 #begin images/coin.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -57,15 +57,15 @@ public class Game1 : Game
             ["level_complete"] = Content.Load<SoundEffect>("audio/level_complete").CreateInstance()
         };
 
-        SoundEffect.MasterVolume = 1;
-        MediaPlayer.Volume = 1;
+        SoundEffect.MasterVolume = 0f;
+        MediaPlayer.Volume = 0f;
+        MediaPlayer.IsRepeating = true;
+        MediaPlayer.Play(audio["music"]);
 
         audio["jump"].Volume = 0.3f;
         audio["coin"].Volume = 0.4f;
         audio["die"].Volume = 0.5f;
         audio["level_complete"].Volume = 0.6f;
-        MediaPlayer.IsRepeating = true;
-        MediaPlayer.Play(audio["music"]);
 
         assets = new()
         {
@@ -83,6 +83,7 @@ public class Game1 : Game
             },
             ["terrain"] = Content.Load<Texture2D>("images/terrain"),
             ["star"] = Content.Load<Texture2D>("images/star"),
+            ["bouncepad"] = Content.Load<Texture2D>("images/bouncepad"),
             ["coin"] = Content.Load<Texture2D>("images/coin"),
             ["spikes"] = Content.Load<Texture2D>("images/spikes"),
             ["background"] = Content.Load<Texture2D>("images/background"),
